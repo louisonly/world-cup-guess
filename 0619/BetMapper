@@ -1,0 +1,14 @@
+package com.louis.mapper;
+
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+
+import com.louis.entity.Bet;
+
+@Mapper
+public interface BetMapper {
+
+	@Insert("INSERT INTO bet (bet_id,user_ip,match_id,wager,bet_time,bet_type) "
+			+ "VALUES (NULL,#{userIp},#{matchId},#{wager},now(),#{betType});")
+	int insert(Bet bet);
+}
